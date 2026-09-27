@@ -1,0 +1,22 @@
+{
+  "kind": "evm_project",
+  "token": {
+    "contract": "LaunchToken",
+    "name": "Heartbeat",
+    "symbol": "BEAT",
+    "decimals": 18
+  },
+  "contracts": [
+    {
+      "contract": "DeadMansSwitch",
+      "constructorArgs": []
+    }
+  ],
+  "pool": {
+    "pairedCurrency": "0x0000000000000000000000000000000000000000",
+    "fee": 3000,
+    "tickSpacing": 60,
+    "initialPrice": "79228162514264337593543950336"
+  },
+  "notes": "Intended for Sepolia (11155111) only. DeadMansSwitch is a test-ETH toy, not a custody or inheritance product. Deploy LaunchToken, then DeadMansSwitch; both constructors are nonpayable and take no arguments. No initialization calls are required. DeadMansSwitch accounts for ETH per switch, has no owner, admin, pause or upgrade path, and does not use BEAT. The pool pairs BEAT with native ETH and has no hook. initialPrice is decimal sqrtPriceX96; the deployment service derives the effective opening price from the pinned policy when it specifies initialMarketCapWei. The factory supplies liquidity and MerkleDistributor. Policy and signed artifact linkage are supplied by services."
+}
